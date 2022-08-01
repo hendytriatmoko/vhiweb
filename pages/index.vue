@@ -36,8 +36,8 @@ export default {
   },
   data: () => ({
     listUser:[],
-    email:'eve.holt@reqres.in',
-    password:'cityslicka',
+    email:'',
+    password:'',
     value:true,
   }),
   methods: {
