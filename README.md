@@ -3,6 +3,8 @@
 ## Build Setup
 
 ```bash
+# WEBSITE DIBANGUN MENGGUNAKAN NUXT JS
+
 # install dependencies
 $ npm install
 
