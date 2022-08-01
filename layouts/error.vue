@@ -1,15 +1,22 @@
 <template>
-  <v-app dark>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
-    </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
-  </v-app>
+  <div>
+    <center>
+      <v-card>
+        <v-toolbar dense elevation="0" color="#20929D" class="white--text">
+            <v-toolbar-title>VHIWEB</v-toolbar-title>
+        </v-toolbar>
+        <h1 v-if="error.statusCode === 404">
+          {{ pageNotFound }}
+        </h1>
+        <h1 v-else>
+          {{ otherError }}
+        </h1>
+        <NuxtLink to="/">
+          Home page
+        </NuxtLink>
+      </v-card>
+    </center>
+  </div>
 </template>
 
 <script>

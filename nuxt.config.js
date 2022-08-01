@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import webpack from 'webpack'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -24,7 +25,7 @@ export default {
   },
 
   server: {
-    port: 91,
+    port: 73,
     host: '0.0.0.0'
   },
 
@@ -49,12 +50,20 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    'cookie-universal-nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: process.env.BASE_URL + '/api'
+  },
+
+  pwa: {
+    manifest: {
+      lang: 'en'
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -78,5 +87,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        'window.Quill': 'quill/dist/quill.js',
+        'Quill': 'quill/dist/quill.js'
+      })
+    ]
+  },
+  router: {
+    middleware: ['auth']
   }
 }
